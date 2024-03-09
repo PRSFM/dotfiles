@@ -1,0 +1,105 @@
+" Space as leader
+
+let mapleader=" "
+
+" Highlight on yank - Cyan 
+let g:highlightedyank_highlight_duration = "500"
+let g:highlightedyank_highlight_color = "rgba(57, 197, 187, 155)"
+
+
+" NerdTree
+nnoremap<Leader>e :NERDTreeToggle<CR>
+nnoremap<leader>E :NERDTreeFocus<CR>
+
+" Ctrl s save
+nnoremap <C-s> :w<CR>
+
+nnoremap <leader>d  "_d<CR>
+vnoremap <leader>d "_d<CR>
+
+nnoremap <leader>bC :bd! +<CR>
+" play a macro recorded to register q
+nnoremap Q @q
+
+" move by screen line instead of file line
+nnoremap j gj
+nnoremap k gk
+
+" Y should yank to EOL
+map Y y$
+" Toggle breakpoint
+nnoremap <leader>mdb    :action ToggleLineBreakpoint<CR>
+vnoremap <leader>mdb    <Esc>:action ToggleLineBreakpoint<CR>
+
+" Clear breakpoints 
+nnoremap <leader>mdC    :action Debugger.RemoveAllBreakpointsInFile<CR>
+vnoremap <leader>mdC    <Esc>:action Debugger.RemoveAllBreakpointsInFile<CR>
+
+" File paths
+nnoremap <leader>fyy    :action CopyPaths<CR>
+vnoremap <leader>fyy    <Esc>:action CopyPaths<CR>
+
+" Find files
+nnoremap <leader>ff    :action GotoFile<CR>
+vnoremap <leader>ff    <Esc>:action GotoFile<CR>
+nnoremap <leader>fF    :action GotoFile<CR>
+vnoremap <leader>fF    <Esc>:action GotoFile<CR>
+
+" Copy whole buffer
+nnoremap <leader>bY    :%y<CR>
+vnoremap <leader>bY    <Esc>:%y<CR>
+
+" Next Tab
+nnoremap L    :action NextTab<CR>
+vnoremap L    <Esc>:action NextTab<CR>
+
+" Prev Tab
+nnoremap  H   :action PreviousTab<CR>
+vnoremap  H   <Esc>:action PreviousTab<CR>
+
+" jj on Insert to exit
+imap jj <Esc>
+
+" Enter to place linebreak
+nnoremap <CR> o<ESC>
+nnoremap <S-CR> O<ESC>
+
+" Multiple windows + navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+nnoremap <C-w>x :action MoveTabDown<CR>
+nnoremap <C-w>v :action MoveTabRight<CR>
+nnoremap <C-w>X :action SplitHorizontally<CR>
+nnoremap <C-w>V :action SplitVertically<CR>
+nnoremap <C-w>u :action Unsplit<CR>
+nnoremap <C-w>q :q<CR>
+nnoremap <C-w>U :action UnsplitAll<CR>
+
+" Close all tabs fix, honestly better to
+nnoremap <leader>qq <A-x>
+
+
+"Pins
+nnoremap <leader>bp :action PinActiveTab<CR>
+nnoremap <leader>bC :action Runner.CloseAllUnpinnedViews<CR>
+
+
+" Set cfg
+:set hlsearch
+:set smartcase
+:set incsearch
+:set multicursor
+:set sneak
+:set quickscope
+:set surround
+:set number
+:set relativenumber
+:set NERDTree
+:set clipboard+=unnamedplus
+:set showmode
+:set highlightedyank
+:set which-key
+:set notimeout
+
