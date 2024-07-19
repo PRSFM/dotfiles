@@ -1,6 +1,8 @@
 " Space as leader
-
 let mapleader=" "
+
+" replace currently selected text with default register without yanking it
+vnoremap p "_dP
 
 " Highlight on yank - Cyan 
 let g:highlightedyank_highlight_duration = "500"
@@ -9,7 +11,10 @@ let g:highlightedyank_highlight_color = "rgba(57, 197, 187, 155)"
 
 " NerdTree
 nnoremap<Leader>e :NERDTreeToggle<CR>
-nnoremap<leader>E :NERDTreeFocus<CR>
+nnoremap<leader>f :NERDTreeFocus<CR>
+
+noremap [ :action MethodDown<CR>
+noremap ] :action MethodUp<CR>
 
 " Ctrl s save
 nnoremap <C-s> :w<CR>
@@ -57,12 +62,11 @@ vnoremap L    <Esc>:action NextTab<CR>
 nnoremap  H   :action PreviousTab<CR>
 vnoremap  H   <Esc>:action PreviousTab<CR>
 
-" jj on Insert to exit
+" Jj on Insert to exit
 imap jj <Esc>
 
-" Enter to place linebreak
-nnoremap <CR> o<ESC>
-nnoremap <S-CR> O<ESC>
+" Format Code
+nnoremap <leader>fb :action ReformatCode<CR>
 
 " Multiple windows + navigation
 nnoremap <c-l> <c-w>l
@@ -76,30 +80,99 @@ nnoremap <C-w>V :action SplitVertically<CR>
 nnoremap <C-w>u :action Unsplit<CR>
 nnoremap <C-w>q :q<CR>
 nnoremap <C-w>U :action UnsplitAll<CR>
-
-" Close all tabs fix, honestly better to
-nnoremap <leader>qq <A-x>
-
+nnoremap <C-w>Q :action CloseAllEditorsButActive<CR>
 
 "Pins
 nnoremap <leader>bp :action PinActiveTab<CR>
-nnoremap <leader>bC :action Runner.CloseAllUnpinnedViews<CR>
+nnoremap <leader>bC :action CloseAllUnpinnedEditors<CR>
 
+" Ace Jump
+nmap s :action AceAction<CR>
+nmap <Space>l :action AceLineAction<CR>
+nmap <Space>t :action AceTargetAction<CR>
+
+"Quick JavaDoc is actually Quick Definition for any language. What the fuck??
+map <leader>qd :action QuickJavaDoc<CR>
+
+" Source .ideavim
+nnoremap <leader>sa :source ~/.ideavimrc<CR>
+
+"mark as a global mark/
+nnoremap ma mA
+nnoremap mb mB
+nnoremap mc mC
+nnoremap md mD
+nnoremap me mE
+nnoremap mf mG
+nnoremap mh mH
+nnoremap mi mI
+nnoremap mj mJ
+nnoremap mk mK
+nnoremap ml mL
+nnoremap mm mM
+nnoremap mn mN
+nnoremap mo mO
+nnoremap mp mP
+nnoremap mq mQ
+nnoremap mr mR
+nnoremap ms mS
+nnoremap mt mT
+nnoremap mu mU
+nnoremap mv mV
+nnoremap mw mW
+nnoremap mx mX
+nnoremap my mY
+nnoremap mz mZ
+
+"go to global marks
+nnoremap 'a `A
+nnoremap 'b `B
+nnoremap 'c `C
+nnoremap 'd `D
+nnoremap 'e `E
+nnoremap 'f `G
+nnoremap 'h `H
+nnoremap 'i `I
+nnoremap 'j `J
+nnoremap 'k `K
+nnoremap 'l `L
+nnoremap 'm `M
+nnoremap 'n `N
+nnoremap 'o `O
+nnoremap 'p `P
+nnoremap 'q `Q
+nnoremap 'r `R
+nnoremap 's `S
+nnoremap 't `T
+nnoremap 'u `U
+nnoremap 'v `V
+nnoremap 'w `W
+nnoremap 'x `X
+nnoremap 'y `Y
+nnoremap 'z `Z
+
+nnoremap <leader>mc :delmarks A-Z0-9<CR>
 
 " Set cfg
-:set hlsearch
-:set smartcase
-:set incsearch
-:set multicursor
-:set sneak
-:set quickscope
-:set surround
-:set number
-:set relativenumber
-:set NERDTree
-:set clipboard+=unnamedplus
-:set showmode
-:set highlightedyank
-:set which-key
-:set notimeout
-
+set smartcase
+set incsearch
+set multicursor
+set sneak
+set quickscope
+set surround
+set number
+set relativenumber
+set NERDTree
+set clipboard+=unnamedplus
+set showmode
+set highlightedyank
+set which-key
+set notimeout
+set smartindent
+set so=999
+set belloff=all
+set visualbell
+set t_vb=
+set ignorecase
+set matchit
+set nohlsearch
